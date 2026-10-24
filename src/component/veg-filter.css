@@ -1,0 +1,66 @@
+.veg-filter {
+  display: flex;
+  padding: 4px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.veg-filter button {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.veg-filter button:hover:not(.on) {
+  background: var(--bg);
+}
+
+.veg-filter .mark {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+}
+
+.veg-filter .mark::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.veg-filter .veg .mark {
+  color: #1a8a3c;
+}
+
+.veg-filter .nonveg .mark {
+  color: var(--red);
+}
+
+.veg-filter .both.on {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.veg-filter .veg.on {
+  background: #1a8a3c;
+  color: var(--white);
+}
+
+.veg-filter .nonveg.on {
+  background: var(--red);
+  color: var(--white);
+}
+
+.veg-filter .on .mark {
+  color: var(--white);
+}

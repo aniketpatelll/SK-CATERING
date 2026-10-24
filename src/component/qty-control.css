@@ -1,0 +1,16 @@
+.qty-input {
+  width: 3.6rem;
+  padding: 0.3rem 0.2rem;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  text-align: center;
+}
+
+.qty-input:focus {
+  border-color: var(--yellow);
+  outline: none;
+}

@@ -1,0 +1,162 @@
+.receipt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.55);
+  font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+}
+
+.receipt-sheet {
+  width: 80mm;
+  max-width: 100%;
+  padding: 6mm 5mm;
+  background: #fff;
+  color: #111;
+  font-size: 12px;
+  line-height: 1.35;
+  border-radius: 6px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.r-title {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.r-sub {
+  margin: 2px 0 8px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.r-meta {
+  padding: 6px 0;
+  border-top: 1px dashed #111;
+  border-bottom: 1px dashed #111;
+}
+
+.r-meta div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.r-meta strong {
+  text-align: right;
+}
+
+.r-items {
+  width: 100%;
+  margin: 6px 0;
+  border-collapse: collapse;
+}
+
+.r-items th {
+  padding: 3px 0;
+  border-bottom: 1px solid #111;
+  text-align: right;
+  font-size: 11px;
+}
+
+.r-items td {
+  padding: 3px 0;
+  text-align: right;
+  vertical-align: top;
+}
+
+.r-items th:first-child,
+.r-items td:first-child {
+  text-align: left;
+  padding-right: 4px;
+}
+
+.r-totals {
+  padding-top: 6px;
+  border-top: 1px dashed #111;
+}
+
+.r-totals div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.r-totals .r-grand {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid #111;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.r-thanks {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 11px;
+}
+
+.receipt-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.receipt-actions button {
+  padding: 0.8rem 1.6rem;
+  border: 0;
+  border-radius: 999px;
+  font: inherit;
+  font-weight: 700;
+}
+
+.receipt-actions .r-print {
+  background: #da291c;
+  color: #fff;
+}
+
+.receipt-actions .r-close {
+  background: #ffc72c;
+  color: #292929;
+}
+
+@media print {
+  @page {
+    margin: 6mm;
+  }
+
+  body {
+    min-width: 0 !important;
+    background: #fff !important;
+  }
+
+  /* print only the bill */
+  body > *:not(.receipt-overlay) {
+    display: none !important;
+  }
+
+  .receipt-overlay {
+    position: static;
+    display: block;
+    padding: 0;
+    overflow: visible;
+    background: none;
+  }
+
+  .receipt-sheet {
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .receipt-actions {
+    display: none;
+  }
+}

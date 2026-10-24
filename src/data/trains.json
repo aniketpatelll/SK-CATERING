@@ -1,0 +1,42 @@
+[
+  {
+    "id": "12002",
+    "name": "Shatabdi Express",
+    "from": "New Delhi",
+    "to": "Bhopal",
+    "dep": "06:00",
+    "arr": "14:25",
+    "dur": "8h 25m",
+    "stations": ["Murwara Katni"]
+  },
+  {
+    "id": "12626",
+    "name": "Kerala Express",
+    "from": "New Delhi",
+    "to": "Trivandrum",
+    "dep": "11:25",
+    "arr": "17:30",
+    "dur": "30h 05m",
+    "stations": ["Murwara Katni", "Katni South"]
+  },
+  {
+    "id": "12722",
+    "name": "Dakshin Express",
+    "from": "Delhi",
+    "to": "Hyderabad",
+    "dep": "22:30",
+    "arr": "06:10",
+    "dur": "31h 40m",
+    "stations": ["Katni South"]
+  },
+  {
+    "id": "12138",
+    "name": "Punjab Mail",
+    "from": "Mumbai",
+    "to": "Firozpur",
+    "dep": "19:40",
+    "arr": "21:20",
+    "dur": "25h 40m",
+    "stations": ["Katni South"]
+  }
+]

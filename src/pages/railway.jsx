@@ -19,7 +19,6 @@ const STATIONS = stations.filter(Boolean);
 const MEALS = items.filter((i) => [].concat(i?.type ?? []).includes("railway"));
 const SLOTS = ["All", ...new Set(MEALS.map((i) => i.category))];
 
-const TAX_RATE = 0.05;
 const money = (n) => `₹${n.toFixed(2)}`;
 
 function Railway({ onSaveOrder }) {
@@ -61,8 +60,7 @@ function Railway({ onSaveOrder }) {
     setCart((c) => c.map((x) => (x.id === id ? { ...x, qty } : x)));
 
   const subtotal = cart.reduce((s, x) => s + x.price * x.qty, 0);
-  const tax = subtotal * TAX_RATE;
-  const total = subtotal + tax;
+  const total = subtotal; // no GST
   const count = cart.reduce((s, x) => s + x.qty, 0);
   const ready =
     train && station && cart.length > 0 && (mode === "passenger" || vendor.trim());
@@ -254,8 +252,6 @@ function Railway({ onSaveOrder }) {
         </div>
 
         <div className="totals">
-          <div><span>Subtotal</span><span>{money(subtotal)}</span></div>
-          <div><span>GST (5%)</span><span>{money(tax)}</span></div>
           <div className="grand"><span>Total</span><span>{money(total)}</span></div>
         </div>
 
@@ -276,7 +272,6 @@ function Railway({ onSaveOrder }) {
                 station,
                 items: cart.map(({ id, name, price, qty }) => ({ id, name, price, qty })),
                 subtotal,
-                tax,
                 total,
               });
               reset();

@@ -9,7 +9,6 @@ import "./customers.css";
 const MENU = items.filter((i) => [].concat(i?.type ?? []).includes("customer"));
 const CATEGORIES = ["All", ...new Set(MENU.map((i) => i.category))];
 
-const TAX_RATE = 0.05;
 const money = (n) => `₹${n.toFixed(2)}`;
 
 function Customers({ onSaveOrder }) {
@@ -44,8 +43,7 @@ function Customers({ onSaveOrder }) {
     setCart((c) => c.map((x) => (x.id === id ? { ...x, qty } : x)));
 
   const subtotal = cart.reduce((s, x) => s + x.price * x.qty, 0);
-  const tax = subtotal * TAX_RATE;
-  const total = subtotal + tax;
+  const total = subtotal; // no GST
   const count = cart.reduce((s, x) => s + x.qty, 0);
 
   return (
@@ -119,8 +117,6 @@ function Customers({ onSaveOrder }) {
         </div>
 
         <div className="totals">
-          <div><span>Subtotal</span><span>{money(subtotal)}</span></div>
-          <div><span>GST (5%)</span><span>{money(tax)}</span></div>
           <div className="grand"><span>Total</span><span>{money(total)}</span></div>
         </div>
 
@@ -137,7 +133,6 @@ function Customers({ onSaveOrder }) {
                 customer: customer.trim() || "Guest",
                 items: cart.map(({ id, name, price, qty }) => ({ id, name, price, qty })),
                 subtotal,
-                tax,
                 total,
               };
               // save to History, then open the bill and the print window

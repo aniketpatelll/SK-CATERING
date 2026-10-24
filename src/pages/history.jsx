@@ -12,7 +12,7 @@ const when = (iso) =>
   new Date(iso).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" });
 
 const SOURCES = ["All", "Customers", "Railway"];
-const PERIODS = ["All time","Today", "Last 7 days", "Last 30 days"];
+const PERIODS = ["Today", "Last 7 days", "Last 30 days", "All time"];
 const STATION_NAMES = stations.filter(Boolean).map((s) => s.name);
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -47,8 +47,13 @@ function matches(o, q) {
 }
 
 function exportCsv(orders, station = "All") {
+  const hasTax = orders.some((o) => o.tax > 0); // older orders only
   const rows = [
-    ["Order", "Date", "Type", "Station", "Customer / Train", "Items", "Subtotal", "GST", "Total"],
+    [
+      "Order", "Date", "Type", "Station", "Customer / Train", "Items",
+      ...(hasTax ? ["Subtotal", "GST"] : []),
+      "Total",
+    ],
     ...orders.map((o) => [
       o.number,
       when(o.createdAt),
@@ -56,8 +61,7 @@ function exportCsv(orders, station = "All") {
       o.station || "",
       o.source === "Railway" ? `${o.train?.id} ${o.train?.name}` : o.customer,
       o.items.map((i) => `${i.qty} x ${i.name}`).join("; "),
-      o.subtotal.toFixed(2),
-      o.tax.toFixed(2),
+      ...(hasTax ? [o.subtotal.toFixed(2), (o.tax || 0).toFixed(2)] : []),
       o.total.toFixed(2),
     ]),
   ];
@@ -237,8 +241,12 @@ function History({ orders, setOrders }) {
                         <span>{money(i.price * i.qty)}</span>
                       </div>
                     ))}
-                    <div className="detail-line sub"><span>Subtotal</span><span>{money(o.subtotal)}</span></div>
-                    <div className="detail-line sub"><span>GST (5%)</span><span>{money(o.tax)}</span></div>
+                    {o.tax > 0 && (
+                      <>
+                        <div className="detail-line sub"><span>Subtotal</span><span>{money(o.subtotal)}</span></div>
+                        <div className="detail-line sub"><span>GST (5%)</span><span>{money(o.tax)}</span></div>
+                      </>
+                    )}
                     <div className="detail-line grand"><span>Total</span><span>{money(o.total)}</span></div>
                     <div className="detail-actions">
                       <button onClick={() => setReceipt(o)}>View bill</button>

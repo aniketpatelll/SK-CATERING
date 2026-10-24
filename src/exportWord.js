@@ -10,6 +10,7 @@ const esc = (s) =>
 
 export function buildWordHtml(orders, title = "AJS Catering - Order History") {
   const total = orders.reduce((s, o) => s + o.total, 0);
+  const hasTax = orders.some((o) => o.tax > 0); // older orders only: then Subtotal + GST columns are shown
 
   const rows = orders
     .map((o) => {
@@ -28,8 +29,7 @@ export function buildWordHtml(orders, title = "AJS Catering - Order History") {
         <td>${esc(o.source)}</td>
         <td>${who}</td>
         <td>${items}</td>
-        <td class="r">${money(o.subtotal)}</td>
-        <td class="r">${money(o.tax)}</td>
+        ${hasTax ? `<td class="r">${money(o.subtotal)}</td><td class="r">${money(o.tax || 0)}</td>` : ""}
         <td class="r"><b>${money(o.total)}</b></td>
       </tr>`;
     })
@@ -62,13 +62,13 @@ export function buildWordHtml(orders, title = "AJS Catering - Order History") {
     <thead>
       <tr>
         <th bgcolor="#DA291C">Order</th><th bgcolor="#DA291C">Date</th><th bgcolor="#DA291C">Type</th><th bgcolor="#DA291C">Customer / Train</th>
-        <th bgcolor="#DA291C">Items</th><th bgcolor="#DA291C" class="r">Subtotal</th><th bgcolor="#DA291C" class="r">GST (5%)</th><th bgcolor="#DA291C" class="r">Total</th>
+        <th bgcolor="#DA291C">Items</th>${hasTax ? `<th bgcolor="#DA291C" class="r">Subtotal</th><th bgcolor="#DA291C" class="r">GST (5%)</th>` : ""}<th bgcolor="#DA291C" class="r">Total</th>
       </tr>
     </thead>
     <tbody>
       ${rows}
       <tr class="total">
-        <td colspan="7" bgcolor="#FFC72C">Grand total</td>
+        <td colspan="${hasTax ? 7 : 5}" bgcolor="#FFC72C">Grand total</td>
         <td class="r" bgcolor="#FFC72C">${money(total)}</td>
       </tr>
     </tbody>

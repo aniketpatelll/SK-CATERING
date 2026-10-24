@@ -15,7 +15,7 @@ export function ReceiptSheet({ order }) {
   return (
     <div className="receipt-sheet">
       <h2 className="r-title">AJS CATERING</h2>
-      <p className="r-sub">Tax Invoice / Bill</p>
+      <p className="r-sub">Bill</p>
 
       <div className="r-meta">
         {order.number && <div><span>Bill no</span><strong>#{order.number}</strong></div>}
@@ -52,8 +52,13 @@ export function ReceiptSheet({ order }) {
       </table>
 
       <div className="r-totals">
-        <div><span>Subtotal</span><span>{money(order.subtotal)}</span></div>
-        <div><span>GST (5%)</span><span>{money(order.tax)}</span></div>
+        {order.tax > 0 && (
+          <>
+            {/* orders saved before GST was removed keep their GST line */}
+            <div><span>Subtotal</span><span>{money(order.subtotal)}</span></div>
+            <div><span>GST (5%)</span><span>{money(order.tax)}</span></div>
+          </>
+        )}
         <div className="r-grand"><span>Total</span><span>{money(order.total)}</span></div>
       </div>
 

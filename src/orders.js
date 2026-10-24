@@ -17,3 +17,23 @@ export function saveOrders(orders) {
     /* storage full or blocked: the app keeps working without saving */
   }
 }
+
+// Ids this device has already exchanged with the cloud (see sync.js).
+const SYNCED_KEY = "ajs-orders-synced";
+
+export function loadSynced() {
+  try {
+    const ids = JSON.parse(localStorage.getItem(SYNCED_KEY));
+    return new Set(Array.isArray(ids) ? ids : []);
+  } catch {
+    return new Set();
+  }
+}
+
+export function saveSynced(set) {
+  try {
+    localStorage.setItem(SYNCED_KEY, JSON.stringify([...set]));
+  } catch {
+    /* storage blocked: sync still works while the page stays open */
+  }
+}

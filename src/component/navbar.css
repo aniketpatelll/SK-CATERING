@@ -47,6 +47,23 @@
   color: var(--ink);
 }
 
+.navbar .sync {
+  margin: auto 0 0;
+  padding: 0 0.5rem;
+  color: var(--yellow-soft);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.navbar .sync.offline {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.navbar .sync + .signed-in {
+  margin-top: 0.4rem;
+}
+
 .navbar .signed-in {
   margin: auto 0 0;
   padding: 0 0.5rem;

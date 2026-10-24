@@ -7,7 +7,7 @@ import Dashboard from "./pages/dashboard";
 import Login from "./pages/login";
 import ConfirmDialog from "./component/confirm-dialog";
 import { loadUser, saveUser, clearUser } from "./auth";
-import { loadOrders, saveOrders } from "./orders";
+import useOrders from "./useOrders";
 import "./App.css";
 
 // Shows the real error on screen instead of a blank white page.
@@ -37,12 +37,10 @@ class ErrorBoundary extends Component {
 
 function App() {
   const [page, setPage] = useState("Customers");
-  const [orders, setOrders] = useState(loadOrders);
+  const { orders, setOrders, status: syncStatus } = useOrders();
   const [toast, setToast] = useState("");
   const [user, setUser] = useState(loadUser); // null = show the login page
   const [askLogout, setAskLogout] = useState(false);
-
-  useEffect(() => saveOrders(orders), [orders]);
 
   useEffect(() => {
     if (!toast) return;
@@ -82,7 +80,7 @@ function App() {
 
   return (
     <div className="app">
-      <NavBar active={page} onNavigate={setPage} user={user} onLogout={() => setAskLogout(true)} />
+      <NavBar active={page} onNavigate={setPage} user={user} sync={syncStatus} onLogout={() => setAskLogout(true)} />
       <ErrorBoundary key={page}>{content}</ErrorBoundary>
       {toast && <div className="toast" role="status">{toast}</div>}
       {askLogout && (

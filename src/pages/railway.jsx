@@ -95,12 +95,17 @@ function Railway({ onSaveOrder }) {
             >
               {st.image && (
                 <img
-                  className="station-img"
-                  src={st.image}
-                  alt={st.imageInfo?.alt ?? st.name}
-                  style={{ objectPosition: st.imagePosition }}
-                  loading="lazy"
-                />
+className="station-img"
+src={
+st.image
+? `${import.meta.env.BASE_URL}${st.image.replace(/^\/+/, "").split("/").map(encodeURIComponent).join("/")}`
+: ""
+}
+alt={st.imageInfo?.alt ?? st.name}
+style={{ objectPosition: st.imagePosition }}
+loading="lazy"
+/>
+
               )}
               <span className="station-body">
                 <strong>{st.name}</strong>

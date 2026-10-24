@@ -5,7 +5,7 @@
     "name": "Samosa",
     "price": 30,
     "category": "Snacks",
-    "icon": "/data/item/Samosa.png",
+    "icon": "/src/data/item/Samosa.png",
     "veg": true
   },
   {
@@ -14,7 +14,7 @@
     "name": "Non-Veg Thali",
     "price": 129,
     "category": "Thali",
-    "icon": "/data/item/Non-Vegetarian Thali.png",
+    "icon": "/src/data/item/Non-Vegetarian Thali.png",
     "veg": false
   },
   {
@@ -23,7 +23,7 @@
     "name": "Coca-Cola 250 ml",
     "price": 20,
     "category": "Drinks",
-    "icon": "/data/item/Coca-Cola 250 ml Bottle.png",
+    "icon": "/src/data/item/Coca-Cola 250 ml Bottle.png",
     "veg": true
   },
   {
@@ -32,7 +32,7 @@
     "name": "veg thali",
     "price": 149,
     "category": "Thali",
-    "icon": "/data/item/Veg Thali.png",
+    "icon": "/src/data/item/Veg Thali.png",
     "veg": true
   },
   {
@@ -41,7 +41,7 @@
     "name": "Sprite 250 ml",
     "price": 20,
     "category": "Drinks",
-    "icon": "/data/item/Sprite 250 ml Bottle.png",
+    "icon": "/src/data/item/Sprite 250 ml Bottle.png",
     "veg": true
   },
   {
@@ -50,7 +50,7 @@
     "name": "Egg Biryani",
     "price": 399,
     "category": "Biryani",
-    "icon": "/data/item/Egg Biryani.png",
+    "icon": "/src/data/item/Egg Biryani.png",
     "veg": false
   },
   {
@@ -59,7 +59,7 @@
     "name": "Veg Biryani ",
     "price": 50,
     "category": "Biryani",
-    "icon": "/data/item/Veg Biryani.png",
+    "icon": "/src/data/item/Veg Biryani.png",
     "veg": true
   },
   {
@@ -68,7 +68,7 @@
     "name": "Rail Neer Bottle",
     "price": 20,
     "category": "Drinks",
-    "icon": "/data/item/Rail Neer Bottle.png",
+    "icon": "/src/data/item/Rail Neer Bottle.png",
     "veg": true
   },
   {
@@ -77,7 +77,7 @@
     "name": "Aloo Bonda",
     "price": 20,
     "category": "Snacks",
-    "icon": "/data/item/Aloo Bonda.png",
+    "icon": "/src/data/item/Aloo Bonda.png",
     "veg": true
   }
 

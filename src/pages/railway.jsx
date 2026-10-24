@@ -3,6 +3,7 @@ import MealCard from "../component/meal-card";
 import QtyControl from "../component/qty-control";
 import items from "../data/items.json";
 import stations from "../data/stations.json";
+import { withBase } from "../url";
 import trains from "../data/trains.json";
 import "./customers.css"; // shared billing layout (menu area, bill panel, chips, tiles)
 import "./railway.css";
@@ -95,17 +96,12 @@ function Railway({ onSaveOrder }) {
             >
               {st.image && (
                 <img
-className="station-img"
-src={
-st.image
-? `${import.meta.env.BASE_URL}${st.image.replace(/^\/+/, "").split("/").map(encodeURIComponent).join("/")}`
-: ""
-}
-alt={st.imageInfo?.alt ?? st.name}
-style={{ objectPosition: st.imagePosition }}
-loading="lazy"
-/>
-
+                  className="station-img"
+                  src={withBase(st.image)}
+                  alt={st.imageInfo?.alt ?? st.name}
+                  style={{ objectPosition: st.imagePosition }}
+                  loading="lazy"
+                />
               )}
               <span className="station-body">
                 <strong>{st.name}</strong>

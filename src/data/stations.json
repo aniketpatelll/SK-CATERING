@@ -2,7 +2,7 @@
   {
     "id": "murwara-katni",
     "name": "Murwara Katni",
-    "image": "/data/stations/Murwara Katni.png",
+    "image": "/src/data/stations/Murwara Katni.png",
     "imageInfo": {
       "alt": "Murwara Katni railway station building",
       "caption": "Murwara Katni station"
@@ -11,7 +11,7 @@
   {
     "id": "katni-south",
     "name": "Katni South",
-    "image": "/data/stations/Katni South.png",
+    "image": "/src/data/stations/Katni South.png",
     "imageInfo": {
       "alt": "Katni South railway station building",
       "caption": "Katni South station"

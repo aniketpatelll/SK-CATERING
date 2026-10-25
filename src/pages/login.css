@@ -23,8 +23,8 @@
   align-self: center;
   width: auto;
   height: auto;
-  max-width: 220px;
-  max-height: 120px;
+  max-width: 200px;
+  max-height: auto;
   object-fit: contain;
 }
 

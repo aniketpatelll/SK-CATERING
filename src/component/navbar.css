@@ -11,9 +11,8 @@
 }
 
 .navbar .logo {
-  width: 110px;
+  width: 150px;
   height: auto;
-  max-height: 110px;
   object-fit: contain;
 }
 

@@ -30,7 +30,7 @@ function Login({ onLogin }) {
             alt="SK Catering logo"
           />
         )}
-        <h1>SK CATERING</h1>
+        {/* <h1>SK CATERING</h1> */}
         <p className="login-sub">Sign in to start billing</p>
 
         <label>

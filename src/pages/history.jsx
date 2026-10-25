@@ -70,7 +70,7 @@ function exportCsv(orders, station = "All") {
     .join("\n");
   return saveFile(
     new Blob(["\ufeff" + csv], { type: "text/csv" }),
-    `ajs-order-history${station === "All" ? "" : `-${slug(station)}`}-${new Date().toLocaleDateString("en-CA")}.csv`,
+    `sk-order-history${station === "All" ? "" : `-${slug(station)}`}-${new Date().toLocaleDateString("en-CA")}.csv`,
     "CSV file",
     "text/csv",
     ".csv"

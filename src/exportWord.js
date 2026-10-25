@@ -8,7 +8,7 @@ const when = (iso) =>
 const esc = (s) =>
   String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-export function buildWordHtml(orders, title = "AJS Catering - Order History") {
+export function buildWordHtml(orders, title = "SK Catering - Order History") {
   const total = orders.reduce((s, o) => s + o.total, 0);
   const hasTax = orders.some((o) => o.tax > 0); // older orders only: then Subtotal + GST columns are shown
 
@@ -80,13 +80,13 @@ export function buildWordHtml(orders, title = "AJS Catering - Order History") {
 
 export function exportWord(orders, station = "") {
   const title = station
-    ? `AJS Catering - Order History - ${station}`
-    : "AJS Catering - Order History";
+    ? `SK Catering - Order History - ${station}`
+    : "SK Catering - Order History";
   const part = station ? `-${station.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}` : "";
   const html = "\ufeff" + buildWordHtml(orders, title);
   return saveFile(
     new Blob([html], { type: "application/msword" }),
-    `ajs-order-history${part}-${new Date().toLocaleDateString("en-CA")}.doc`,
+    `sk-order-history${part}-${new Date().toLocaleDateString("en-CA")}.doc`,
     "Word document",
     "application/msword",
     ".doc"

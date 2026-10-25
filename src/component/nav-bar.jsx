@@ -13,7 +13,7 @@ const SYNC_TEXT = {
 function NavBar({ active, onNavigate, user, sync, onLogout }) {
   return (
     <nav className="navbar">
-      {navbarLogo && <img src={navbarLogo} alt="AJS Catering logo" className="logo" />}
+      {navbarLogo && <img src={navbarLogo} alt="SK Catering logo" className="logo" />}
 
       <div className="menu">
         {LINKS.map((name) => (

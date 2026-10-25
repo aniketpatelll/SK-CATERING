@@ -3,6 +3,7 @@ import users from "./data/users.json";
 // NOTE: this keeps people out of the screens, but it runs in the browser, so it is
 // not real security. Anyone who can open the app files can read users.json.
 // For real protection the check has to happen on a server.
+// The key keeps its old name on purpose: renaming it would sign you out.
 const KEY = "ajs-user";
 
 export function checkLogin(username, password) {

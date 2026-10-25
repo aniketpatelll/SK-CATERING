@@ -1,4 +1,5 @@
 // Saves orders in the browser so History survives a page refresh.
+// The keys keep their old names on purpose: renaming them would hide orders already saved.
 const KEY = "ajs-orders";
 
 export function loadOrders() {

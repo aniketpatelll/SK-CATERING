@@ -50,7 +50,7 @@ function Customers({ onSaveOrder }) {
     <div className="billing">
       <section className="menu-area">
         <header className="menu-header">
-          <h1>AJS CATERING</h1>
+          <h1>SK CATERING</h1>
           <VegFilter value={diet} onChange={setDiet} />
         </header>
 

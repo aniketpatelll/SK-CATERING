@@ -14,7 +14,7 @@ export function ReceiptSheet({ order }) {
 
   return (
     <div className="receipt-sheet">
-      <h2 className="r-title">AJS CATERING</h2>
+      <h2 className="r-title">SK CATERING</h2>
       <p className="r-sub">Bill</p>
 
       <div className="r-meta">

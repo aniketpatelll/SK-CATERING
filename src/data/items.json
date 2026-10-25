@@ -1,3 +1,4 @@
+
 [
   {
     "id": 1,
@@ -6,6 +7,15 @@
     "price": 30,
     "category": "Snacks",
     "icon": "/data/item/Samosa.png",
+    "veg": true
+  },
+  {
+    "id": 9,
+    "type": ["customer", "railway"],
+    "name": "Aloo Bonda",
+    "price": 20,
+    "category": "Snacks",
+    "icon": "/data/item/Aloo Bonda.png",
     "veg": true
   },
   {
@@ -18,30 +28,12 @@
     "veg": false
   },
   {
-    "id": 3,
-    "type": ["customer", "railway"],
-    "name": "Coca-Cola 250 ml",
-    "price": 20,
-    "category": "Drinks",
-    "icon": "/data/item/Coca-Cola 250 ml Bottle.png",
-    "veg": true
-  },
-  {
     "id": 4,
     "type": ["customer", "railway"],
-    "name": "veg thali",
+    "name": "Veg Thali",
     "price": 149,
     "category": "Thali",
     "icon": "/data/item/Veg Thali.png",
-    "veg": true
-  },
-  {
-    "id": 5,
-    "type": ["customer", "railway"],
-    "name": "Sprite 250 ml",
-    "price": 20,
-    "category": "Drinks",
-    "icon": "/data/item/Sprite 250 ml Bottle.png",
     "veg": true
   },
   {
@@ -56,10 +48,28 @@
   {
     "id": 7,
     "type": ["customer", "railway"],
-    "name": "Veg Biryani ",
+    "name": "Veg Biryani",
     "price": 50,
     "category": "Biryani",
     "icon": "/data/item/Veg Biryani.png",
+    "veg": true
+  },
+  {
+    "id": 3,
+    "type": ["customer", "railway"],
+    "name": "Coca-Cola 250 ml",
+    "price": 20,
+    "category": "Drinks",
+    "icon": "/data/item/Coca-Cola 250 ml Bottle.png",
+    "veg": true
+  },
+  {
+    "id": 5,
+    "type": ["customer", "railway"],
+    "name": "Sprite 250 ml",
+    "price": 20,
+    "category": "Drinks",
+    "icon": "/data/item/Sprite 250 ml Bottle.png",
     "veg": true
   },
   {
@@ -70,16 +80,6 @@
     "category": "Drinks",
     "icon": "/data/item/Rail Neer Bottle.png",
     "veg": true
-  },
-  {
-    "id": 9,
-    "type": ["customer", "railway"],
-    "name": "Aloo Bonda",
-    "price": 20,
-    "category": "Snacks",
-    "icon": "/data/item/Aloo Bonda.png",
-    "veg": true
   }
-
- 
 ]
+
